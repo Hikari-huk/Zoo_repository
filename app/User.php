@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    //このユーザーがフォローしている人を取得
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'users_users', 'following_id', 'followed_id')->withTimestamps();    
+    }
+    
+    //このユーザーをフォローしている人を取得
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'users_users', 'followed_id', 'following_id')->withTimestamps();    
+    }
 }
