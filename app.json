@@ -1,0 +1,28 @@
+{
+  "name": "チーム開発",
+  "description": "チーム開発で作成したアプリケーションです",
+  "keywords": [
+    "laravel"
+  ],
+  "logo": "(ロゴ画像URL)",
+  "env": {
+    "DB_CONNECTION": {
+      "description": "DBドライバ(laravelのDBをPostgreSQLに指定)",
+      "value": "pgsql"
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "php artisan migrate:fresh --force && php artisan db:seed --force"
+  }
+}
