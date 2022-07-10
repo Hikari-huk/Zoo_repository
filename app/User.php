@@ -61,8 +61,23 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'users_users', 'followed_id', 'following_id')->withTimestamps();    
     }
     
+    public function cute()
+    {
+        return $this->belongsToMany('App\Post')->using('App\Cute');
+    }
+    
+    public function cool()
+    {
+        return $this->belongsToMany('App\Post')->using('App\Cool');
+    }
+    
+    public function weird()
+    {
+        return $this->belongsToMany('App\Post')->using('App\Weird');
+
     public function category()
     {
         return $this->belongsTo('App\Category');
+
     }
 }

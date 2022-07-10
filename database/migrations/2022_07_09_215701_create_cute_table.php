@@ -13,7 +13,7 @@ class CreateCuteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cute', function (Blueprint $table) {
+        Schema::create('cutes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->integer('post_id')->unsigned();

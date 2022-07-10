@@ -18,6 +18,9 @@ Route::put('/posts/{post}', 'PostController@update'); //編集操作
 Route::get('/posts/{post}', 'PostController@show'); //投稿詳細画面
 Route::post('/posts', 'PostController@store'); //投稿保存操作
 Route::delete('/posts/{post}', 'PostController@delete'); //投稿削除
+Route::get('/cute/{post}', 'PostController@cute');//かわいいボタン
+Route::get('/cool/{post}', 'PostController@cool');//かっこいいボタン
+Route::get('/weird/{post}', 'PostController@weird');//きもいボタン
 Route::get('/categories/{category}', 'CategoryController@index'); //カテゴリー一覧画面
 Route::get('/mypage', 'UserController@index');//マイページ画面
 Route::get('/mypage/edit', 'UserController@edit');//ユーザー情報編集画面

@@ -13,7 +13,7 @@ class CreateWeirdTable extends Migration
      */
     public function up()
     {
-        Schema::create('weird', function (Blueprint $table) {
+        Schema::create('weirds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->integer('post_id')->unsigned();
