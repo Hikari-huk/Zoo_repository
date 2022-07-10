@@ -22,6 +22,12 @@ Route::get('/cute/{post}', 'PostController@cute');//かわいいボタン
 Route::get('/cool/{post}', 'PostController@cool');//かっこいいボタン
 Route::get('/weird/{post}', 'PostController@weird');//きもいボタン
 Route::get('/categories/{category}', 'CategoryController@index'); //カテゴリー一覧画面
+Route::get('/mypage', 'UserController@index');//マイページ画面
+Route::get('/mypage/edit', 'UserController@edit');//ユーザー情報編集画面
+Route::put('/mypage', 'UserController@update');//ユーザー情報編集操作
+Route::post('/users/{user}/follow', 'UserController@follow');//フォロー機能
+Route::post('/users/{user}/unfollow', 'UserController@unfollow');//アンフォロー機能
+Route::get('/users/{user}', 'UserController@show');//ユーザーページ画面
 
 Auth::routes();
 

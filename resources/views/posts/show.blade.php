@@ -11,11 +11,11 @@
     <body>
         <h1>投稿詳細ページ</h1>
         <h2 class="title">
-            タイトル：{{ $post->title }}
-        </h1>
+            ユーザ名
+        </h2>
         <div class="content">
-            <div class="content__post">
-                <p>本文：{{ $post->body }}</p>    
+            <div class="image">
+                <img src=" {{ asset("storage/$post->images_url")}}">  
             </div>
         </div>
         <p>カテゴリー:<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>

@@ -7,25 +7,23 @@
     <body>
         <h1>レバテックチーム開発</h1>
         <h2>投稿作成ページ</h2>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="title">
-                <h2>Title</h2>
-                <input type="text" name="post[title]" placeholder="タイトル"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+            <div class='image'>
+                <input type="file" name="post[images_url]">
             </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。"></textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+            <div class=size>
+                <h2>サイズ</h2>
+                <input type="text" name="post[size_mm]" placeholder="サイズ[mm]"/>
             </div>
-            <div class="category">
-                <h2>Category</h2>
-                <select name="post[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+            <div class="caption">
+                <h2>説明</h2>
+                <textarea name="post[caption]" placeholder="今日も1日お疲れさまでした。"></textarea>
+                <p class="caption__error" style="color:red">{{ $errors->first('post.caption') }}</p>
+            </div>
+            <div class="hash">
+                <h2>ハッシュタグ</h2>
+                <input type="text" name="post[hashtags]" placeholder="hashtags"/>
             </div>
             <input type="submit" value="保存"/>
         </form>

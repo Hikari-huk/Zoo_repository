@@ -10,9 +10,11 @@ class Post extends Model
     use SoftDeletes;
     
     protected $fillable = [
-        'title',
-        'body',
-        'category_id',
+        'caption',
+        'hashtags',
+        'images_url',
+        'user_id',
+        'size_mm'
         ];
     
     function getPaginateByLimit(int $limit_count = 5)
@@ -23,6 +25,11 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
     
     public function hashtags()

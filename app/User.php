@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','category_id',
+        'name', 'email', 'password','category_id','profile'
     ];
 
     /**
@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');  
     }
     
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+    
     //このユーザーがフォローしている人を取得
     public function follows()
     {
@@ -69,5 +74,10 @@ class User extends Authenticatable
     public function weird()
     {
         return $this->belongsToMany('App\Post')->using('App\Weird');
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+
     }
 }

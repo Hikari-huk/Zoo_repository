@@ -4,9 +4,12 @@
         <meta charset="utf-8">
         <title>Blog</title>
         <!-- Fonts -->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('css/top.css')}}">
     </head>
     <body>
+    
         <h1>レバテックチーム開発</h1>
         <form action="{{ route('logout') }}" method="post">
           @csrf
@@ -34,16 +37,41 @@
         </div>
         <div>
             [<a href='/posts/create'>新規作成</a>]
+
+        @extends("layouts/app")
+        @section("content")
+        <div class="wrapper">
+            <div class='posts'>
+                @foreach($posts as $post)
+                    <div class='post'>
+                        <a href="/show/{{ $post->id }}">
+                            <img src="{{$post->images_url}}">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            
+            <div class="create">
+                <a href='/create'>+</a>
+            </div>
+            
+            <nav class="footer-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a class="toppage" href="/">トップページ</a>
+                    </li>
+                    <li>
+                        <a class="mypage" href="/mypage">マイページ</a>  {{--<a href="/mypage/{{$user->id}}">--}}
+                    </li>
+                    <li>
+                        <a class="search" href="/search">検索</a>
+                    </li>
+                    <li>
+                        <a class="ranking" href="/ranking">ランキング</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </body>
-    <script>
-        function deletePost(post_id) {
-            form = document.getElementById('form_' + post_id);  //各投稿ごとのdeleteのformを取得
-            is_submit = confirm('本当に削除してもよろしいですか？'); //はいの場合true,いいえの場合falseをis_submitに格納
-            
-            if(is_submit) {  //is_submitがtrueの場合のみ、{}の中の処理が行われる
-                form.submit();  //deleteするformをsubmitする（投稿を削除している）
-            }
-        }
-    </script>
+    @endsection
 </html>
