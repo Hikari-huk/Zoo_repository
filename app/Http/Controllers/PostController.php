@@ -59,31 +59,43 @@ class PostController extends Controller
     
     public function cute(Post $post)
     {
-        $cute=new Cute();
-        $cute->user_id=Auth::id();
-        $cute->post_id=$post->id;
-        $cute->save();
-        
+         $cute=Cute::where("user_id",Auth::id())->where("post_id",$post->id);
+        if($cute->exists()){
+            $cute->delete();
+        }else{
+            $cute=new Cute();
+            $cute->user_id=Auth::id();
+            $cute->post_id=$post->id;
+            $cute->save();
+        }
         return redirect('/posts/'.$post->id);
     }
     
      public function cool(Post $post)
     {
-        $cool=new Cool();
-        $cool->user_id=Auth::id();
-        $cool->post_id=$post->id;
-        $cool->save();
-        
+        $cool=Cool::where("user_id",Auth::id())->where("post_id",$post->id);
+        if($cool->exists()){
+            $cool->delete();
+        }else{
+            $cool=new Cool();
+            $cool->user_id=Auth::id();
+            $cool->post_id=$post->id;
+            $cool->save();
+        }
         return redirect('/posts/'.$post->id);
     }
     
      public function weird(Post $post)
     {
-        $weird=new Weird();
-        $weird->user_id=Auth::id();
-        $weird->post_id=$post->id;
-        $weird->save();
-        
+         $weird=Weird::where("user_id",Auth::id())->where("post_id",$post->id);
+        if($weird->exists()){
+            $weird->delete();
+        }else{
+            $weird=new Weird();
+            $weird->user_id=Auth::id();
+            $weird->post_id=$post->id;
+            $weird->save();
+        }
         return redirect('/posts/'.$post->id);
     }
 }
