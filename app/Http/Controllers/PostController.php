@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Category;
@@ -19,7 +18,6 @@ class PostController extends Controller
     //     $user = Auth::user();
     //     $category_id = $user->category_id;
     //     $posts = Category::find($category_id)->getByCategory();
-        // dd($post->id);
         return view('posts/index')->with(['posts' => $post->get()]);
     }
     

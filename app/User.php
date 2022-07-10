@@ -74,7 +74,7 @@ class User extends Authenticatable
     public function weird()
     {
         return $this->belongsToMany('App\Post')->using('App\Weird');
-
+    }
     public function category()
     {
         return $this->belongsTo('App\Category');
