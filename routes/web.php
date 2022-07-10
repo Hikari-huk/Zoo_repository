@@ -20,9 +20,6 @@ Route::post('/posts', 'PostController@store'); //投稿保存操作
 Route::delete('/posts/{post}', 'PostController@delete'); //投稿削除
 Route::get('/categories/{category}', 'CategoryController@index'); //カテゴリー一覧画面
 
-Route::get('/pos/test_create','PostController@test_create');
-Route::post('/upload', 'PostController@store');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

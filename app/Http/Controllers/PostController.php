@@ -24,14 +24,21 @@ class PostController extends Controller
         return view('posts/create')->with(['categories' => $category->get()]);;
     }
     
-    /*
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
+        $filename=time().'.'.$input["images_url"]->getClientOriginalName();
+        $img=$input["images_url"]->storeAs('',$filename,['disk'=>'public']);
+        
+        //ユーザ_id保存
+        $input->user_id=\Auth::id(); 
+        //ユーザークラスのインスタンス化
+        $post = new Post();
+
+        //imgpathカラムに画像パスを挿入
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/');
     }
-    */
     
     public function edit(Post $post)
     {
@@ -55,23 +62,6 @@ class PostController extends Controller
     public function test_create()
     {
         return view('posts/test_create');
-    }
-    
-    //作成したコントローラーに記述
-    //$request->inputのname属性でつけた名前でデータがとれる。(この場合imgpath)
-    
-    public function store(Request $request){
-        //strage/app/imgsに画像を保存
-        $input = $request['post'];
-        $filename=time().'.'.$input["images_url"]->getClientOriginalName();
-        $img=$input["images_url"]->storeAs('',$filename,['disk'=>'public']);
-         
-        //ユーザークラスのインスタンス化
-        $post = new Post();
-
-        //imgpathカラムに画像パスを挿入
-        $post->fill($input)->save();
-        return redirect('/');
     }
     
 }
