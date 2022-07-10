@@ -15,8 +15,7 @@
         </h2>
         <div class="content">
             <div class="image">
-                {{--public/uploadsにアップロードされた画像を格納--}}
-                <img src="/uploads/{{ $member->img_filename }}" width="200px" height="200px">   
+                <img src=" {{ asset("storage/$post->images_url")}}">  
             </div>
         </div>
         <p>カテゴリー:<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>

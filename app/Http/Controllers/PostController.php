@@ -16,6 +16,7 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        //dd($post->images_url);
         return view('posts/show')->with(['post' => $post]);
     }
     
@@ -31,7 +32,9 @@ class PostController extends Controller
         $img=$input["images_url"]->storeAs('',$filename,['disk'=>'public']);
         
         //ユーザ_id保存
-        $input->user_id=\Auth::id(); 
+        $input['user_id']=3; 
+        $input["images_url"]=$filename;
+        //dd($input);
         //ユーザークラスのインスタンス化
         $post = new Post();
 
