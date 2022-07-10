@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');  
     }
     
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+    
     //このユーザーがフォローしている人を取得
     public function follows()
     {
@@ -54,5 +59,10 @@ class User extends Authenticatable
     public function followers()
     {
         return $this->belongsToMany(User::class, 'users_users', 'followed_id', 'following_id')->withTimestamps();    
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 }
