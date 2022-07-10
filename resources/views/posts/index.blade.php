@@ -45,14 +45,14 @@
                 @foreach($posts as $post)
                     <div class='post'>
                         <a href="/show/{{ $post->id }}">
-                            <img src="{{$post->images_url}}">
+                            <img src="{{asset('storage/'.$post->images_url)}}">
                         </a>
                     </div>
                 @endforeach
             </div>
             
             <div class="create">
-                <a href='/create'>+</a>
+                <a href='posts/create'>+</a>
             </div>
             
             <nav class="footer-nav">

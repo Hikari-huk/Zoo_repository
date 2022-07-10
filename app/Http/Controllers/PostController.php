@@ -16,10 +16,11 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        $user = Auth::user();
-        $category_id = $user->category_id;
-        $posts = Category::find($category_id)->getByCategory();
-        return view('posts/index')->with(['posts' => $posts]);
+    //     $user = Auth::user();
+    //     $category_id = $user->category_id;
+    //     $posts = Category::find($category_id)->getByCategory();
+        // dd($post->id);
+        return view('posts/index')->with(['posts' => $post->get()]);
     }
     
     public function show(Post $post)
