@@ -1,0 +1,86 @@
+body {
+    font-size: 100%;
+    background-color: #ddffab !important;
+}
+
+.wrapper {
+    width: 360px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.post {
+    margin-bottom: 1px;
+}
+
+.post:nth-child(3n-1) {
+    margin: 0 1px;
+}
+
+.post a img {
+    width: 119px;
+}
+
+.create {
+    position: fixed;
+    bottom: 12%;
+    right: 5%;
+}
+
+.create a {
+    font-size: 2.5rem;
+    padding: 10px 20px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow:5px 5px 10px 0 #a5a5a5;
+    
+}
+
+.footer-nav {
+    width: 375px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.nav-list li{
+    list-style: none;
+}
+
+.nav-list li a {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 50px;
+    color: #414141;
+    padding: 13px 6.3px;
+}
+
+.nav-list li .toppage {
+    background-color: #ddffab;
+}
+.nav-list li .mypage {
+    background-color: #ffdaab;
+}
+.nav-list li .search {
+    background-color: #abe4ff;
+}
+.nav-list li .ranking {
+    background-color: #d9abff;
+}
