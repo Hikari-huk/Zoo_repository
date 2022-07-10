@@ -16,8 +16,9 @@ class Category extends Model
         return $this->hasMany('App\User');
     }
     
-    public function getByCategory(int $limit_count = 5)
+    public function getByCategory(int $limit_count = 21)
+
 {
-     return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+     return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
 }
 }
