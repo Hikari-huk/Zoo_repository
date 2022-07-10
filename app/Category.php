@@ -17,6 +17,7 @@ class Category extends Model
     }
     
     public function getByCategory(int $limit_count = 21)
+
 {
      return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
 }
