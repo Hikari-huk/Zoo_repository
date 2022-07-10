@@ -12,7 +12,7 @@
         <h1>{{ Auth::user()->name }}さんのマイページ</h1>
         <div class="content">
             @if(isset( Auth::user()->profile ))
-                <p>本文：{{ Auth::user()->profile }}</p>
+                <p>プロフィール：{{ Auth::user()->profile }}</p>
             @else
                 <p>プロフィールはまだ設定されていません。</p>
             @endif
