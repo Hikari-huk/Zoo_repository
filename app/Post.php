@@ -10,10 +10,11 @@ class Post extends Model
     use SoftDeletes;
     
     protected $fillable = [
-        'title',
-        'body',
-        'category_id',
-        'images_url'
+        'caption',
+        'hashtags',
+        'images_url',
+        'user_id',
+        'size_mm'
         ];
     
     function getPaginateByLimit(int $limit_count = 5)
