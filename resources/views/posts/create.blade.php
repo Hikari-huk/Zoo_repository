@@ -7,8 +7,11 @@
     <body>
         <h1>レバテックチーム開発</h1>
         <h2>投稿作成ページ</h2>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
+            <div class='image'>
+                <input type="file" name="post[images_url]">
+            </div>
             <div class="title">
                 <h2>Title</h2>
                 <input type="text" name="post[title]" placeholder="タイトル"/>

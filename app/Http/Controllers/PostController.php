@@ -27,8 +27,17 @@ class PostController extends Controller
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
+        $filename=time().'.'.$input["images_url"]->getClientOriginalName();
+        $img=$input["images_url"]->storeAs('',$filename,['disk'=>'public']);
+        
+        //ユーザ_id保存
+        $input->user_id=\Auth::id(); 
+        //ユーザークラスのインスタンス化
+        $post = new Post();
+
+        //imgpathカラムに画像パスを挿入
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/');
     }
     
     public function edit(Post $post)
@@ -48,6 +57,11 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect('/');
+    }
+    
+    public function test_create()
+    {
+        return view('posts/test_create');
     }
     
 }
