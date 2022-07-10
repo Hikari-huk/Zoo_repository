@@ -36,4 +36,19 @@ class Post extends Model
     {
         return $this->hasMany('App\Comment');  
     }
+    
+    public function cute()
+    {
+        return $this->belongsToMany('App\User')->using('App\Cute');
+    }
+    
+    public function cool()
+    {
+        return $this->belongsToMany('App\User')->using('App\Cool');
+    }
+    
+    public function weird()
+    {
+        return $this->belongsToMany('App\User')->using('App\Weird');
+    }
 }

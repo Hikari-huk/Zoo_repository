@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Category;
+use App\Cute;
+use App\Cool;
+use App\Weird;
 
 class PostController extends Controller
 {
@@ -27,6 +31,9 @@ class PostController extends Controller
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
+        $post->images_url="test";
+        $post->user_id=\Auth::id();
+        $post->size_mm=1.0;
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
@@ -50,4 +57,33 @@ class PostController extends Controller
         return redirect('/');
     }
     
+    public function cute(Post $post)
+    {
+        $cute=new Cute();
+        $cute->user_id=Auth::id();
+        $cute->post_id=$post->id;
+        $cute->save();
+        
+        return redirect('/posts/'.$post->id);
+    }
+    
+     public function cool(Post $post)
+    {
+        $cool=new Cool();
+        $cool->user_id=Auth::id();
+        $cool->post_id=$post->id;
+        $cool->save();
+        
+        return redirect('/posts/'.$post->id);
+    }
+    
+     public function weird(Post $post)
+    {
+        $weird=new Weird();
+        $weird->user_id=Auth::id();
+        $weird->post_id=$post->id;
+        $weird->save();
+        
+        return redirect('/posts/'.$post->id);
+    }
 }

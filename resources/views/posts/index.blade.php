@@ -8,7 +8,10 @@
     </head>
     <body>
         <h1>レバテックチーム開発</h1>
-        <a href="/logout">logout</a>
+        <form action="{{ route('logout') }}" method="post">
+          @csrf
+          <input type="submit" value="ログアウト">
+        </form>
         <h2>投稿一覧ページ</h2>
         <div class='posts'>
             @foreach($posts as $post)

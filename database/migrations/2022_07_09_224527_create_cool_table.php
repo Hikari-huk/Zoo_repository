@@ -13,7 +13,7 @@ class CreateCoolTable extends Migration
      */
     public function up()
     {
-        Schema::create('cool', function (Blueprint $table) {
+        Schema::create('cools', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->integer('post_id')->unsigned();
