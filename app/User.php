@@ -37,6 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    //Commentに対するリレーション
+    //「1対多」の関係なので'comments'と複数形に
+    public function comments()   
+    {
+        return $this->hasMany('App\Comment');  
+    }
+    
     //このユーザーがフォローしている人を取得
     public function follows()
     {

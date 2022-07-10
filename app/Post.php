@@ -29,4 +29,11 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Hashtag');
     }
+    
+    //Commentに対するリレーション
+    //「1対多」の関係なので'comments'と複数形に
+    public function comments()   
+    {
+        return $this->hasMany('App\Comment');  
+    }
 }
