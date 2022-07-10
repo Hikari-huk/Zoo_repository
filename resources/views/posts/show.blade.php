@@ -18,7 +18,6 @@
                 <img src=" {{ asset("storage/$post->images_url")}}">  
             </div>
         </div>
-        <p>カテゴリー:<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
         <a href="/cute/{{ $post->id }}">かわいい</a>
         <a href="/cool/{{ $post->id }}">かっこいい</a>
         <a href="/weird/{{ $post->id }}">きもい</a>
